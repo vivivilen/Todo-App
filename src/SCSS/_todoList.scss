@@ -1,0 +1,50 @@
+.todo-list-container {
+    // border: 1px solid red;
+    margin-top: 2%;
+
+    .todo-list {
+        position: relative;
+        padding: 8px;
+        margin: auto;
+        width: 42%;
+        // border: 1px solid black;
+        display: flex;
+        flex-direction: row;
+        align-items: center; 
+
+        li {
+            list-style: none;
+        }
+
+        .checked-box-list {
+            text-decoration: line-through;
+            color: grey;
+        }
+
+        span {
+            position: absolute;
+            right: 5%;
+            align-items: center;
+            display: flex;
+            cursor: pointer;
+
+            &:hover {
+                color: red;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .check-box {
+            margin-right: 16px;
+        }
+    }
+}
+
+.no-data {
+    margin-top: 5%;
+    color: grey;
+    font-size: 1.2em;   
+}

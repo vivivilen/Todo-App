@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { InputField } from './Component/InputField';
+import { TodoList } from './Component/TodoList';
+import axios from 'axios';
 
 function App() {
+  const [todo, setTodo] = useState([]);
+  const [data, setData] = useState([]);
+
+  const getRequest = () => {
+        axios.get('http://localhost:8000/todos')
+            .catch(err => console.log('error: ', err))
+            .then(response => { setData(response.data.data) })
+    }
+
   return (
+    // console.log('data: ', data),
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>To-do List</h1>
+      <InputField todo={todo} setTodo={setTodo} data={data} setData={setData}/>
+      <TodoList data={data} getRequest={getRequest}/>
     </div>
   );
 }

@@ -1,0 +1,35 @@
+@mixin inputStyle {
+    padding: 8px;
+    border-radius: 3px;
+}
+
+.input-container {
+    margin: auto;
+    // border: 1px solid black;
+    .input-box {
+        @include inputStyle;
+        width: 35%;
+        border: 1px solid grey;
+        margin-right: 10px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .btn-add {
+        @include inputStyle;
+        cursor: pointer;
+        border: none;
+        color: white;
+        background: $light-blue-color;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            background: lighten($light-blue-color, 5%);
+        }
+    }
+}

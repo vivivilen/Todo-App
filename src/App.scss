@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@import './SCSS/config';
+@import './SCSS/inputField';
+@import './SCSS/todoList';
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.App {
+    // border: 1px solid black;
+    text-align: center;
+
+    h1 {
+        color: $almost-black-color;
+    }
+}
