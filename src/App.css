@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 .input-container {
   margin: auto;
 }
@@ -92,14 +92,160 @@
   font-size: 1.2em;
 }
 
+.login-form-container {
+  max-width: 50%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.login-form-container h1 {
+  margin-bottom: 10%;
+}
+
+.login-form-container .input-container {
+  margin-bottom: 24px;
+}
+
+.login-form-container button {
+  padding: 8px 10px;
+  width: 200px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background: #2cb3f6;
+}
+
+.login-form-container button:hover {
+  background: #14aaf5;
+}
+
+.login-form-container button:focus {
+  outline: none;
+}
+
+.btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 55px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.btn-container .btn {
+  position: relative;
+  right: 3%;
+  margin-left: 10px;
+}
+
+.btn-container .btn .btn-signup {
+  background: #2cb3f6;
+  color: white;
+}
+
+.btn-container .btn .btn-login {
+  color: #2cb3f6;
+}
+
+.btn-container .btn button {
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #2CB3F6;
+}
+
+.btn-container .btn button:focus {
+  outline: none;
+}
+
+.signup-form-container {
+  max-width: 50%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.signup-form-container h1 {
+  margin-bottom: 10%;
+}
+
+.signup-form-container .input-container {
+  margin-bottom: 24px;
+}
+
+.signup-form-container button {
+  padding: 8px 10px;
+  width: 200px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background: #2cb3f6;
+}
+
+.signup-form-container button:hover {
+  background: #14aaf5;
+}
+
+.signup-form-container button:focus {
+  outline: none;
+}
+
+.signup-form-container .err-msg {
+  color: red;
+  font-size: 12px;
+}
+
+.todo {
+  text-align: center;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 .App {
-  text-align: center;
+  height: 100vh;
 }
 
 .App h1 {

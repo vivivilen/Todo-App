@@ -1,28 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import '../App.css';
 import axios from 'axios';
 import { DeleteOutlined } from '@ant-design/icons';
+import {GlobalContext} from '../Context/GlobalContext';
 
-export const TodoList = (props) => {
+export const TodoList = () => {
+    const [isCheck, setIsCheck] = useState(Boolean);
+    const { data, getTodos } = useContext(GlobalContext);
+
     useEffect(() => {
-        props.getRequest()
-    }, [props.data])
+        getTodos();
+    }, [data])
 
     const deleteRequest = (id) => {
-        axios.delete(`http://localhost:8000/todos/${id}`)
+        axios.delete(`http://127.0.0.1:8000/todos/${id}`)
             .catch(err => console.log(err))
             .then(response => console.log(response))
     }
 
     const handleChange = (index) => {
         // setIsCheck(!index.is_completed)
-        let updateCheck = !index.is_completed
+        // let updateCheck = !index.is_completed
+        setIsCheck(prevIsCheck => !prevIsCheck)
+
         console.log('api_completed: ', index.is_completed);
 
-        axios.patch(`http://localhost:8000/todos/${index.Id}`, {
+        axios.patch(`http://127.0.0.1:8000/todos/${index.Id}`, {
             title: index.title,
             description: index.description,
-            is_completed: updateCheck
+            is_completed: isCheck
         }).catch(err => console.log(err))
             .then(response => {
                 // console.log(response.data.data)
@@ -32,9 +38,9 @@ export const TodoList = (props) => {
 
     return (
         // console.log(data),
-        props.data !== null ? 
+        data !== null ? 
             <div className="todo-list-container">
-                {props.data.map(i => (
+                {data.map(i => (
                     <ul className="todo-list" key={i.Id}>
                         <input type="checkbox" className="check-box"
                             onChange={() => handleChange(i)} checked={i.is_completed} />
@@ -45,3 +51,5 @@ export const TodoList = (props) => {
             </div> : <div className="no-data">No to-do list at the moment</div>
     )
 }
+
+export default TodoList;

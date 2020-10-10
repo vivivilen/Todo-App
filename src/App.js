@@ -3,24 +3,28 @@ import './App.css';
 import { InputField } from './Component/InputField';
 import { TodoList } from './Component/TodoList';
 import axios from 'axios';
+import LoginPage from './Component/LoginPage';
+import ButtonLoginSignUp from './Component/ButtonLoginSignUp';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import SignUpPage from './Component/SignUpPage';
+import Todo from './Component/Todo';
+import { GlobalProvider } from './Context/GlobalContext';
 
 function App() {
-  const [todo, setTodo] = useState([]);
-  const [data, setData] = useState([]);
-
-  const getRequest = () => {
-        axios.get('http://localhost:8000/todos')
-            .catch(err => console.log('error: ', err))
-            .then(response => { setData(response.data.data) })
-    }
 
   return (
-    // console.log('data: ', data),
-    <div className="App">
-      <h1>To-do List</h1>
-      <InputField todo={todo} setTodo={setTodo} data={data} setData={setData}/>
-      <TodoList data={data} getRequest={getRequest}/>
-    </div>
+    <GlobalProvider>
+      <Router>
+        <div className="App">
+          <ButtonLoginSignUp />
+          <Switch>
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/signup" component={SignUpPage} />
+            <Route exact path="/todo" component={Todo} />
+          </Switch>
+        </div>
+      </Router>
+    </GlobalProvider>
   );
 }
 

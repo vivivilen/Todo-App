@@ -1,17 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 @import './SCSS/config';
 @import './SCSS/inputField';
 @import './SCSS/todoList';
+@import './SCSS/loginPage';
+@import './SCSS/buttonLoginSignUp';
+@import './SCSS/signUpPage';
+@import './SCSS/todo';
 
 * {
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
 
 .App {
-    // border: 1px solid black;
-    text-align: center;
+    // border: 1px solid red;
+    // text-align: center;
+    height: 100vh;
 
     h1 {
         color: $almost-black-color;

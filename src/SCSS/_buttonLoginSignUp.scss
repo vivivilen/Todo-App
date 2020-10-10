@@ -1,0 +1,35 @@
+.btn-container {
+    display: flex;
+    height: 55px;
+    align-items: center;
+    flex-direction: row;
+    // border: 1px solid red;
+    justify-content: flex-end;
+
+    .btn {
+        position: relative;
+        right: 3%;
+        margin-left: 10px;
+
+        .btn-signup {
+            background: #2cb3f6;
+            color: white;
+            // border: 1px solid black;
+        }
+
+        .btn-login {
+            color: #2cb3f6;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 3px;
+            border: 1px solid #2CB3F6;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
