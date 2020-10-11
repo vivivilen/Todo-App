@@ -6,7 +6,7 @@ import { GlobalContext } from '../Context/GlobalContext';
 // import { Redirect } from 'react-router-dom'
 
 const LoginPage = () => {
-    const { token, setToken, setDataUser, dataUser } = useContext(GlobalContext);
+    const { token, setToken, setDataUser, dataUser, setIsLogin } = useContext(GlobalContext);
     const history = useHistory();
 
     const [email, setEmail] = useState('');
@@ -32,6 +32,7 @@ const LoginPage = () => {
             email: email,
             password: password
         }).then(res => {
+            setIsLogin(true);
             alert('Login success!');
             localStorage.setItem('token', res.data.data.token);
             localStorage.setItem('dataUser', JSON.stringify(res.data.data.user));

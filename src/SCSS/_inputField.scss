@@ -8,7 +8,7 @@
     // border: 1px solid black;
     .input-box {
         @include inputStyle;
-        width: 35%;
+        width: 30%; 
         border: 1px solid grey;
         margin-right: 10px;
 
@@ -17,19 +17,27 @@
         }
     }
 
+    .input-title {
+        width: 20%;
+    }
+
+    .input-desc {
+        width: 25%;
+    }
+
     .btn-add {
         @include inputStyle;
         cursor: pointer;
         border: none;
         color: white;
-        background: $light-blue-color;
+        background: #ee6f57;
 
         &:focus {
             outline: none;
         }
 
         &:hover {
-            background: lighten($light-blue-color, 5%);
+            background: darken(#ee6f57, 5%);
         }
     }
 }

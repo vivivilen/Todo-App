@@ -1,31 +1,50 @@
 .btn-container {
     display: flex;
-    height: 55px;
+    height: 65px;
     align-items: center;
     flex-direction: row;
     // border: 1px solid red;
     justify-content: flex-end;
+    background: #145374;
+
+    span {
+        // border: 1px solid black;
+        position: relative;
+        right: 4%;
+        color: #f6f5f5;
+    }
 
     .btn {
         position: relative;
         right: 3%;
         margin-left: 10px;
 
-        .btn-signup {
-            background: #2cb3f6;
+        .btn-signup, .btn-logout {
+            background: #ee6f57;
             color: white;
             // border: 1px solid black;
         }
 
         .btn-login {
-            color: #2cb3f6;
+            color: #f6f5f5;
+            background: #145374;
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+                background: #ee6f57;
+            }
+        }
+
+        .hide-btn{
+            display: none;
         }
 
         button {
             cursor: pointer;
-            padding: 5px 10px;
+            padding: 6px 10px;
             border-radius: 3px;
-            border: 1px solid #2CB3F6;
+            border: none;
+            // border: 1px solid #ee6f57;
 
             &:focus {
                 outline: none;

@@ -7,7 +7,7 @@ const Todo = () => {
         <div className="todo">
             <h1>To-do List</h1>
             <InputField />
-            {/* <TodoList /> */}
+            <TodoList />
         </div>
     )
 }

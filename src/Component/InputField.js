@@ -1,18 +1,14 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import '../App.css';
 import axios from 'axios';
 import { GlobalContext } from '../Context/GlobalContext';
 
 export const InputField = () => {
-    const { todo, setTodo, data, setData, token } = useContext(GlobalContext);
-
-    useEffect(() => {
-        // console.log('This is useEffect');
-        console.log(token)
-    }, [todo])
+    const { token, todo } = useContext(GlobalContext);
+    const [title, setTitle] = useState('');
 
     const handleChange = e => {
-        setTodo(e.target.value);
+        setTitle(e.target.value)
     }
 
     const handleSubmit = (e) => {
@@ -20,29 +16,27 @@ export const InputField = () => {
 
         const url = 'http://127.0.0.1:8000/todos/';
 
-        // axios.post(url, {
-        //     title: todo,
-        //     description: 'for testing purpose',
-        // }).catch(err => console.log(err))
-        //     .then(response => {
-        //         data === null ? window.location.reload() : console.log('input: ', response)
-        //     })
-        // setTodo('');
-
         axios.post(url, {
-            title: todo,
-            description: 'For testing purpose'
+            title: title,
+            description: 'todo list'
         }, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `${token}`
             }
-        }).then(res => console.log(res))
+        }).then(res => {
+            console.log(res);
+            // if (todo === null) {
+            //     window.location.reload();
+            // }
+        }   ).catch(err => alert(err))
+        setTitle('');
     }
 
     return (
         <form className="input-container" onSubmit={handleSubmit}>
-            <input type="text" className="input-box" placeholder="Your to-do list" value={todo} onChange={handleChange} />
+            <input type="text" className="input-box" placeholder="Your to-do list"
+                value={title} name="title" onChange={handleChange} />
             <button className="btn-add">Add todo</button>
         </form>
     )
