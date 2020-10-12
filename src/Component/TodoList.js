@@ -1,83 +1,58 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import '../App.css';
 import axios from 'axios';
-import {useHistory} from 'react-router-dom';
 import { DeleteOutlined } from '@ant-design/icons';
-import {GlobalContext} from '../Context/GlobalContext';
+import { GlobalContext } from '../Context/GlobalContext';
 
-export const TodoList = () => {
-    const [isCheck, setIsCheck] = useState(Boolean);
-    const { token, setIsLogin } = useContext(GlobalContext);
-    const [todo, setTodo] = useState([]);
-    const [isLoading, setLoading] = useState(true);
-
-    const history = useHistory();
-
-    useEffect(() => {
-        getTodos();
-    }, [isLoading])
-    
-    const getTodos = () => {
-        axios.get('http://127.0.0.1:8000/todos/', {
-          headers: { 
-            "Content-Type": "application/json",
-            "Authorization": `${token}`}
-        }).then(res => {
-            setTodo(res.data.data)
-            setLoading(false)
-            if(localStorage.getItem('token')) {
-                setIsLogin(true)
-            }
-        }).catch(err => {
-            alert(err.response.data.message);
-            history.push('/login');
-        })
-    }
+export const TodoList = (props) => {
+    const { token } = useContext(GlobalContext);
+    const { setLoading, todo } = props;
 
     const deleteRequest = (id) => {
+        setLoading(true)
         axios.delete(`http://127.0.0.1:8000/todos/${id}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `${token}`
             }
         })
-            .catch(err => {console.log(err)})
+            .catch(err => { console.log(err) })
             .then(response => {
-                setLoading(true);
-                console.log(response)})
+                setLoading(false);
+                console.log(response)
+            })
     }
 
-    const handleChange = (index) => {
-        // setIsCheck(!index.is_completed)
-        // let updateCheck = !index.is_completed
-        setIsCheck(prevIsCheck => !prevIsCheck)
+    const handleChange = (index, e) => {
+        const newArray = [...todo];
+        const findIndex = todo.findIndex(i => i.todo_id === index);
+        const { checked } = e.target
 
-        console.log('api_completed: ', index.is_completed);
-
-        axios.patch(`http://127.0.0.1:8000/todos/${index.Id}`, {
-            title: index.title,
-            description: index.description,
-            is_completed: isCheck
+        setLoading(true);
+        axios.patch(`http://127.0.0.1:8000/todos/${index}`, {
+            // ...newArray[findIndex],
+            title: newArray[findIndex].title,
+            description: newArray[findIndex].description,
+            is_completed: checked
         }, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `${token}`
             }
+        }).then(response => {
+            setLoading(false)
+            console.log('response: ', response)
         }).catch(err => console.log(err))
-            .then(response => {
-                // console.log(response.data.data)
-                console.log(response)
-            })
     }
 
     return (
-        todo !== null ? 
+        todo !== null ?
             <div className="todo-list-container">
                 {todo.map(i => (
                     <ul className="todo-list" key={i.todo_id}>
                         <input type="checkbox" className="check-box"
-                            onChange={() => handleChange(i)} checked={i.is_completed} />
-                        <li className={i.is_completed === true ? "checked-box-list" : ""} onClick={()=>console.log(i.is_completed)}>{i.title}</li>
+                            onChange={(e) => handleChange(i.todo_id, e)} checked={i.is_completed} />
+                        <li className={i.is_completed === true ? "checked-box-list" : ""} onClick={() => console.log(i.is_completed)}>{i.title}</li>
                         <span><DeleteOutlined style={{ fontSize: '20px' }} onClick={() => deleteRequest(i.todo_id)} /></span>
                     </ul>
                 ))}

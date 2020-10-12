@@ -1,11 +1,12 @@
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../App.css';
 import axios from 'axios';
 import { GlobalContext } from '../Context/GlobalContext';
 
-export const InputField = () => {
-    const { token, todo } = useContext(GlobalContext);
+export const InputField = (props) => {
+    const { token } = useContext(GlobalContext);
     const [title, setTitle] = useState('');
+    const { setLoading } = props
 
     const handleChange = e => {
         setTitle(e.target.value)
@@ -16,6 +17,7 @@ export const InputField = () => {
 
         const url = 'http://127.0.0.1:8000/todos/';
 
+        setLoading(true)
         axios.post(url, {
             title: title,
             description: 'todo list'
@@ -26,6 +28,7 @@ export const InputField = () => {
             }
         }).then(res => {
             console.log(res);
+            setLoading(false);
             // if (todo === null) {
             //     window.location.reload();
             // }

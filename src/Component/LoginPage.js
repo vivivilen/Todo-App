@@ -6,7 +6,7 @@ import { GlobalContext } from '../Context/GlobalContext';
 // import { Redirect } from 'react-router-dom'
 
 const LoginPage = () => {
-    const { token, setToken, setDataUser, dataUser, setIsLogin } = useContext(GlobalContext);
+    const { setToken, setDataUser, setIsLogin } = useContext(GlobalContext);
     const history = useHistory();
 
     const [email, setEmail] = useState('');
@@ -18,11 +18,6 @@ const LoginPage = () => {
         } else {
             setPassword(e.target.value);
         }
-    }
-
-    const emptyField = () => {
-        setEmail('');
-        setPassword('');
     }
 
     const handleSubmit = (e) => {
