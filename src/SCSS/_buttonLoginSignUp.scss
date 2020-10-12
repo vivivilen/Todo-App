@@ -23,6 +23,10 @@
             background: #ee6f57;
             color: white;
             // border: 1px solid black;
+
+            &:hover {
+                background: darken(#ee6f57, 5%);
+            }
         }
 
         .btn-login {

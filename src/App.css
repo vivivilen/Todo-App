@@ -182,6 +182,10 @@
   color: white;
 }
 
+.btn-container .btn .btn-signup:hover, .btn-container .btn .btn-logout:hover {
+  background: #ec5b40;
+}
+
 .btn-container .btn .btn-login {
   color: #f6f5f5;
   background: #145374;

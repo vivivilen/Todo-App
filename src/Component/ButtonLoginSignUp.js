@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from '../Context/GlobalContext';
 
 const ButtonLoginSignUp = () => {
-  const { isLogin, setIsLogin } = useContext(GlobalContext);
-  // const getName = JSON.parse(localStorage.getItem('dataUser')).name;
+  const { isLogin, setIsLogin, setLoading, token } = useContext(GlobalContext);
 
   const history = useHistory();
 
@@ -17,7 +16,6 @@ const ButtonLoginSignUp = () => {
 
   return (
     <div className="btn-container">
-      {/* <span>Hi, {getName} !</span> */}
       <div className="btn">
         <Link to="/login">
           <button className={isLogin ? "btn-login hide-btn" : "btn-login"}>Login</button>

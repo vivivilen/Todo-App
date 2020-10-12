@@ -15,6 +15,7 @@ function App() {
         <div className="App">
           <ButtonLoginSignUp />
           <Switch>
+            <Route exact path="/" component={Todo} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/todo" component={Todo} />
