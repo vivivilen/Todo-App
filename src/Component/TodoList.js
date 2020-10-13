@@ -24,15 +24,15 @@ export const TodoList = (props) => {
     }
 
     const handleChange = (index, e) => {
-        const newArray = [...todo];
-        const findIndex = todo.findIndex(i => i.todo_id === index);
+        // const newArray = [...todo];
+        // const findIndex = todo.findIndex(i => i.todo_id === index);
         const { checked } = e.target
 
         setLoading(true);
         axios.patch(`http://127.0.0.1:8000/todos/${index}`, {
             // ...newArray[findIndex],
-            title: newArray[findIndex].title,
-            description: newArray[findIndex].description,
+            // title: newArray[findIndex].title,
+            // description: newArray[findIndex].description,
             is_completed: checked
         }, {
             headers: {

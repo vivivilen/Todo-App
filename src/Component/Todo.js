@@ -32,8 +32,11 @@ const Todo = () => {
                 setIsLogin(true)
             }
         }).catch(err => {
-            alert(err.response);
-            history.push('/login');
+            alert(err.response.data.message)
+            if (err.response.status === 401) {
+                localStorage.clear();
+                history.push('/login');
+            }
         })
     }
     console.log(todo)
@@ -42,7 +45,7 @@ const Todo = () => {
         <div className="todo">
             <h1>To-do List</h1>
             <InputField isLoading={isLoading} setLoading={setLoading} />
-            <TodoList setLoading={setLoading} todo={todo} setTodo={setTodo}/>
+            <TodoList setLoading={setLoading} todo={todo} setTodo={setTodo} />
         </div>
     )
 }
