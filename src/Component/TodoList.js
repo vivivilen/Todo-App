@@ -27,6 +27,7 @@ export const TodoList = (props) => {
         // const newArray = [...todo];
         // const findIndex = todo.findIndex(i => i.todo_id === index);
         const { checked } = e.target
+        console.log('todo')
 
         setLoading(true);
         axios.patch(`http://127.0.0.1:8000/todos/${index}`, {
