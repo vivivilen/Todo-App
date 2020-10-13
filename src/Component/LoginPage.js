@@ -1,9 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { TextField } from '@material-ui/core';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { GlobalContext } from '../Context/GlobalContext';
-import { Redirect } from 'react-router-dom'
 
 const LoginPage = () => {
     const { setToken, setDataUser, setIsLogin } = useContext(GlobalContext);
