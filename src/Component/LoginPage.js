@@ -32,7 +32,7 @@ const LoginPage = () => {
             localStorage.setItem('dataUser', JSON.stringify(res.data.data.user));
             setToken(res.data.data.token);
             setDataUser(res.data.data.user);
-            history.push('/todo');
+            history.push('/');
         })
         .catch(err => {
             alert('Invalid email or password.')

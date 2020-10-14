@@ -7,10 +7,13 @@
 @import './SCSS/buttonLoginSignUp';
 @import './SCSS/signUpPage';
 @import './SCSS/todo';
+@import './SCSS/sideBar';
+@import './SCSS/dashboard';
 
 * {
     box-sizing: border-box;
     font-family: 'Rubik', sans-serif;
+    padding: 0;
 }
 
 .App {

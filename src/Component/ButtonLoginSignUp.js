@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import SideBar from './SideBar';
 import { GlobalContext } from '../Context/GlobalContext';
 
 const ButtonLoginSignUp = () => {
@@ -16,6 +17,7 @@ const ButtonLoginSignUp = () => {
 
   return (
     <div className="btn-container">
+      <SideBar />
       <div className="btn">
         <Link to="/login">
           <button className={isLogin ? "btn-login hide-btn" : "btn-login"}>Login</button>
