@@ -1,0 +1,68 @@
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    // border: 1px solid red;
+    justify-content: center;
+    height: 60%;
+
+    .profile-item {
+        // width: 100vw;
+        // height: calc(100vh - 70px);
+        // border: 1px solid black;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+
+        .form-change-profile {
+            width: 21vw;
+            // border: 1px solid red;
+
+            h4 {
+                text-transform: uppercase;
+            }
+
+            .edit-field-container {
+                // border: 1px solid orange;
+                margin-bottom: 12px;
+
+                label {
+                    font-size: 12px;
+                    color: rgb(112, 112, 112);
+                }
+
+                input {
+                    border-radius: 2px;
+                    border: 1px solid lightgrey;
+                    padding: 8px;
+                    width: 90%;
+
+                    &:focus {
+                        border: none;
+                        outline: none;
+                        border-bottom: 2px solid #2AA4B9;
+                    }
+                }
+            }
+
+            .btn-update {
+                text-transform: uppercase;
+                width: 90%;
+                padding: 8px;
+                border: none;
+                background: #ee6f57;
+                color: white;
+                cursor: pointer;
+                border-radius: 4px;
+
+                &:hover {
+                    background: darken(#ee6f57, 5%);
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+}

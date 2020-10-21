@@ -16,6 +16,7 @@ const Todo = () => {
     useEffect(() => {
         console.log('useEffect: ', isLoading);
 
+        setIsLogin(true)
         getTodos();
     }, [isLoading])
 
@@ -39,9 +40,9 @@ const Todo = () => {
             }
         })
     }
-    console.log(todo)
 
     if(!localStorage.getItem('token')) {
+        setIsLogin(false)
         return <Redirect to="/login"/>
     }
     return (

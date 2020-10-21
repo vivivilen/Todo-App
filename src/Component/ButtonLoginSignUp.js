@@ -10,8 +10,8 @@ const ButtonLoginSignUp = () => {
   const history = useHistory();
 
   const logout = () => {
-    setIsLogin(false);
     localStorage.clear();
+    setIsLogin(false);
     history.push('/login');
   }
 

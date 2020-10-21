@@ -30,12 +30,12 @@ const SideBar = () => {
           </li>
           {SideBarData.map((item, index) => {
             return (
-              <Link to={item.path}>
-                <li key={index} className={item.cName}>
+              <li key={index} className={item.cName}>
+                <Link to={item.path}>
                   <span>{item.icon}</span>
                   {item.title}
-                </li>
-              </Link>
+                </Link>
+              </li>
             );
           })}
         </ul>
