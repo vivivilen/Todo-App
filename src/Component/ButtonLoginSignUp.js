@@ -5,7 +5,7 @@ import SideBar from './SideBar';
 import { GlobalContext } from '../Context/GlobalContext';
 
 const ButtonLoginSignUp = () => {
-  const { isLogin, setIsLogin, setLoading, token } = useContext(GlobalContext);
+  const { isLogin, setIsLogin } = useContext(GlobalContext);
 
   const history = useHistory();
 

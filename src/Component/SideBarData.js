@@ -1,11 +1,17 @@
 import React from 'react';
-import {HomeOutlined, UnorderedListOutlined, HistoryOutlined, LockOutlined, UserOutlined} from '@ant-design/icons';
+import {HomeOutlined, UnorderedListOutlined, HistoryOutlined, LockOutlined, UserOutlined, ShopOutlined} from '@ant-design/icons';
 
 export const SideBarData = [
     {
         title: 'Dashboard',
         path: '/',
         icon: <HomeOutlined />,
+        cName: 'nav-text'
+    },
+    {
+        title: 'Shop',
+        path: '/shop',
+        icon: <ShopOutlined />,
         cName: 'nav-text'
     },
     {

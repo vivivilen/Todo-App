@@ -1,0 +1,7 @@
+.shop-container {
+    .shop-item {
+        display: grid;
+        grid-template-columns: repeat(4, 30%);
+        border: 1px solid black;
+    }
+}

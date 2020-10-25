@@ -40,11 +40,7 @@ const Todo = () => {
             }
         })
     }
-
-    if(!localStorage.getItem('token')) {
-        setIsLogin(false)
-        return <Redirect to="/login"/>
-    }
+    
     return (
         <div className="todo">
             <h1>{`${getDataUser.name}'s To-do List`}</h1>

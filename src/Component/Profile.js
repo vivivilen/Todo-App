@@ -3,7 +3,7 @@ import axios from 'axios';
 import { GlobalContext } from '../Context/GlobalContext';
 
 const Profile = () => {
-    const { token, setIsLogin, setDataUser } = useContext(GlobalContext);
+    const { token, setDataUser, dataUser } = useContext(GlobalContext);
 
     const [loggedInProfile, setLoggedInProfile] = useState({})
     const [editedName, setEditedName] = useState('');
@@ -46,15 +46,12 @@ const Profile = () => {
                 "Authorization": `${token}`
             }
         }).then(res => {
-            if (res.status == 200) {
+            if (res.status === 200) {
                 setDataUser(res.data.data)
                 localStorage.setItem('dataUser', JSON.stringify(res.data.data))
+                alert("Change profile success!");
             }
         })
-    }
-
-    if (localStorage.getItem('token')) {
-        setIsLogin(true)
     }
 
     return (

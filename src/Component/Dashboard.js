@@ -1,21 +1,6 @@
-import React, { useContext, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
-import { GlobalContext } from '../Context/GlobalContext';
+import React from 'react';
 
 const Dashboard = () => {
-    const { isLogin, setIsLogin } = useContext(GlobalContext);
-
-    useEffect(() => {
-        if (!localStorage.getItem('token')) {
-            setIsLogin(false)
-            return <Redirect to="/login" />
-        } else { 
-            setIsLogin(true)
-        };
-    }, []);
-
-
-    console.log(isLogin)
     return (
         <div>
             <h1>Dashboard</h1>
