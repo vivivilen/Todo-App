@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import { MenuOutlined, CloseOutlined, WalletOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { SideBarData } from "./SideBarData";
 import { GlobalContext } from "../Context/GlobalContext";
@@ -8,6 +8,7 @@ const SideBar = () => {
   const [sidebar, setSidebar] = useState(false);
   const { isLogin } = useContext(GlobalContext);
   const showSideBar = () => setSidebar((prevState) => !prevState);
+  // const getDataUser = JSON.parse(localStorage.getItem('dataUser'));
 
   console.log("isLogin: ", isLogin);
 
@@ -27,6 +28,13 @@ const SideBar = () => {
             <Link to="#" className="menu-bars">
               <CloseOutlined />
             </Link>
+          </li>
+          <li className="welcome-user">Welcome, Test</li>
+          <li className="balance-user">
+            <span>
+              <WalletOutlined />
+            </span>
+            Rp 0
           </li>
           {SideBarData.map((item, index) => {
             return (
