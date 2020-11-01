@@ -9,7 +9,6 @@ const Todo = () => {
     const { token, setIsLogin } = useContext(GlobalContext);
     const [isLoading, setLoading] = useState(true);
     const [todo, setTodo] = useState([]);
-    const getDataUser = JSON.parse(localStorage.getItem('dataUser'));
 
     const history = useHistory();
 
@@ -43,7 +42,7 @@ const Todo = () => {
     
     return (
         <div className="todo">
-            <h1>{`${getDataUser.name}'s To-do List`}</h1>
+            <h1>To-do List</h1>
             <InputField isLoading={isLoading} setLoading={setLoading} />
             <TodoList setLoading={setLoading} todo={todo} setTodo={setTodo} />
         </div>

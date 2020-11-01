@@ -1,5 +1,5 @@
 import React from 'react';
-import {HomeOutlined, UnorderedListOutlined, HistoryOutlined, LockOutlined, UserOutlined, ShopOutlined} from '@ant-design/icons';
+import {HomeOutlined, UnorderedListOutlined, HistoryOutlined, LockOutlined, UserOutlined, ShopOutlined, PlusSquareOutlined} from '@ant-design/icons';
 
 export const SideBarData = [
     {
@@ -18,6 +18,12 @@ export const SideBarData = [
         title: 'My Todo',
         path: '/todo',
         icon: <UnorderedListOutlined />,
+        cName: 'nav-text'
+    },
+    {
+        title: 'Top Up',
+        path: '/top-up',
+        icon: <PlusSquareOutlined />,
         cName: 'nav-text'
     },
     {

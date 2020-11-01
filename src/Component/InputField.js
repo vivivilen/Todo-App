@@ -29,9 +29,6 @@ export const InputField = (props) => {
         }).then(res => {
             console.log(res);
             setLoading(false);
-            // if (todo === null) {
-            //     window.location.reload();
-            // }
         }   ).catch(err => alert(err))
         setTitle('');
     }

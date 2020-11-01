@@ -17,7 +17,7 @@ const ButtonLoginSignUp = () => {
 
   return (
     <div className="btn-container">
-      <SideBar />
+      {isLogin ? <SideBar /> : <div></div>}
       <div className="btn">
         <Link to="/login">
           <button className={isLogin ? "btn-login hide-btn" : "btn-login"}>Login</button>

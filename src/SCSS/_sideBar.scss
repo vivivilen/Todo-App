@@ -53,6 +53,31 @@
 
 .sidebar-menu-items {
   width: 100%;
+  // border: 1px solid white;
+
+  .welcome-user {
+    padding: 8px 0px 8px 16px;
+    // border: 1px solid wheat;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .balance-user {
+    padding: 0px 0px 8px 28px;
+    // border: 1px solid orange;
+    color: white;
+    height: 50px;
+    display: flex;
+    // align-items: center;
+
+    span {
+      // border: 1px solid white;
+      margin-right: 5px;
+      // font-size: 16px;
+    }
+  }
 
   .nav-text {
     display: flex;
@@ -60,7 +85,8 @@
     align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;
-    height: 60px;
+    height: 55px;
+    // border: 1px solid red;
 
     a {
       text-decoration: none;

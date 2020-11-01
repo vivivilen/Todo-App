@@ -1,24 +1,18 @@
 import React, { useState, useContext } from "react";
-import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import { MenuOutlined, CloseOutlined, WalletOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { SideBarData } from "./SideBarData";
 import { GlobalContext } from "../Context/GlobalContext";
 
 const SideBar = () => {
   const [sidebar, setSidebar] = useState(false);
-  const { isLogin } = useContext(GlobalContext);
   const showSideBar = () => setSidebar((prevState) => !prevState);
-
-  console.log("isLogin: ", isLogin);
 
   return (
     <>
       <div className="sidebar">
         <Link to="#" className="menu-bars">
-          <MenuOutlined
-            onClick={showSideBar}
-            className={isLogin ? "icon" : "icon hide-icon"}
-          />
+          <MenuOutlined onClick={showSideBar} className="icon" />
         </Link>
       </div>
       <nav className={sidebar ? "sidebar-menu active" : "sidebar-menu"}>
@@ -27,6 +21,13 @@ const SideBar = () => {
             <Link to="#" className="menu-bars">
               <CloseOutlined />
             </Link>
+          </li>
+          <li className="welcome-user">Welcome, {JSON.parse(localStorage.getItem('dataUser')).name}</li>
+          <li className="balance-user">
+            <span>
+              <WalletOutlined />
+            </span>
+            Rp {JSON.parse(localStorage.getItem('dataUser')).wallet}
           </li>
           {SideBarData.map((item, index) => {
             return (

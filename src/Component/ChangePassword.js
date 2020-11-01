@@ -44,7 +44,7 @@ const ChangePassword = () => {
                     console.log('success')
                 }
             })
-                .catch(err => alert(err.message))
+                .catch(err => alert(err.response.data.message))
         }
     }
 

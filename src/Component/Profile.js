@@ -3,7 +3,7 @@ import axios from 'axios';
 import { GlobalContext } from '../Context/GlobalContext';
 
 const Profile = () => {
-    const { token, setDataUser, dataUser } = useContext(GlobalContext);
+    const { token, setDataUser } = useContext(GlobalContext);
 
     const [loggedInProfile, setLoggedInProfile] = useState({})
     const [editedName, setEditedName] = useState('');

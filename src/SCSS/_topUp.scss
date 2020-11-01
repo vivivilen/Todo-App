@@ -1,0 +1,60 @@
+.topup-form-container {
+    // border: 1px solid black;
+    max-width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 50vh;
+
+    .balance-label {
+        margin-top: 0;
+    }
+
+    .curr-balance {
+        margin-top: 0;
+        font-size: 24px;
+    }
+
+    .edit-field-container {
+        margin-top: 20px;
+        // border: 1px solid salmon;
+
+        .topup-label {
+            // border: 1px solid black;
+            font-size: 16px;
+        }
+        input {
+            margin-top: 8px;
+            margin-bottom: 8px;
+            // border: 1px solid red;
+            width: 100%;
+            padding: 8px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    button {
+        padding: 8px 10px;
+        width: 40%;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: none;
+        border-radius: 3px;
+        color: white;
+        background: #ee6f57;
+
+        &:hover {
+            background: darken(#ee6f57, 5%);
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

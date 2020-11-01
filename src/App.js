@@ -9,6 +9,7 @@ import Dashboard from './Component/Dashboard';
 import Profile from './Component/Profile';
 import { GlobalProvider } from './Context/GlobalContext';
 import ChangePassword from './Component/ChangePassword';
+import TopUp from './Component/TopUp';
 import Shop from './Component/Shop';
 
 function ProtectedRoute(props) {
@@ -16,7 +17,7 @@ function ProtectedRoute(props) {
 
   if(!localStorage.getItem('token') && !localStorage.getItem('dataUser')) {
     alert('Token invalid. Please re-login!')
-    return <Redirect to='login'/>
+    return <Redirect to='/login'/>
   }
 
   return (
@@ -41,6 +42,7 @@ function App() {
             <ProtectedRoute exact path="/profile" component={Profile} />
             <ProtectedRoute exact path="/change-password" component={ChangePassword} />
             <ProtectedRoute exact path="/shop" component={Shop} />
+            <ProtectedRoute exact path="/top-up" component={TopUp} />
           </Switch>
         </div>
       </Router>
