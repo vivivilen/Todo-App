@@ -27,12 +27,12 @@ const LoginPage = () => {
             password: password
         }).then(res => {
             if (res.status === 200) {
-                setIsLogin(true);
                 alert('Login success!');
                 localStorage.setItem('token', res.data.data.token);
                 localStorage.setItem('dataUser', JSON.stringify(res.data.data.user));
                 setToken(res.data.data.token);
                 setDataUser(res.data.data.user);
+                setIsLogin(true);
                 history.push('/');
             }
         })

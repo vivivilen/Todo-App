@@ -6,20 +6,13 @@ import { GlobalContext } from "../Context/GlobalContext";
 
 const SideBar = () => {
   const [sidebar, setSidebar] = useState(false);
-  const { isLogin } = useContext(GlobalContext);
   const showSideBar = () => setSidebar((prevState) => !prevState);
-  // const getDataUser = JSON.parse(localStorage.getItem('dataUser'));
-
-  console.log("isLogin: ", isLogin);
 
   return (
     <>
       <div className="sidebar">
         <Link to="#" className="menu-bars">
-          <MenuOutlined
-            onClick={showSideBar}
-            className={isLogin ? "icon" : "icon hide-icon"}
-          />
+          <MenuOutlined onClick={showSideBar} className="icon" />
         </Link>
       </div>
       <nav className={sidebar ? "sidebar-menu active" : "sidebar-menu"}>
@@ -29,12 +22,12 @@ const SideBar = () => {
               <CloseOutlined />
             </Link>
           </li>
-          <li className="welcome-user">Welcome, Test</li>
+          <li className="welcome-user">Welcome, {JSON.parse(localStorage.getItem('dataUser')).name}</li>
           <li className="balance-user">
             <span>
               <WalletOutlined />
             </span>
-            Rp 0
+            Rp {JSON.parse(localStorage.getItem('dataUser')).wallet}
           </li>
           {SideBarData.map((item, index) => {
             return (
