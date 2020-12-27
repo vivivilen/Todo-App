@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { MenuOutlined, CloseOutlined, WalletOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { SideBarData } from "./SideBarData";
-import { GlobalContext } from "../Context/GlobalContext";
+import { GlobalContext } from '../Context/GlobalContext';
 
 const SideBar = () => {
   const [sidebar, setSidebar] = useState(false);

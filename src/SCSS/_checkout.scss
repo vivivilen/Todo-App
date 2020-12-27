@@ -1,0 +1,49 @@
+.checkout-container {
+    .empty-pic {
+        width: 600px;
+    }
+}
+
+.checkout-item {
+    // border: 1px solid black;
+    width: 70%;
+    margin: auto;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+
+    th{
+        text-align: left;
+        border: 1px solid lightgray;
+        padding: 10px;
+    }
+
+    td {
+        border: 1px solid lightgray;
+        padding: 8px;
+    }
+  }
+
+  .subtotal, .subtotal-value {
+      font-weight: bold;
+  }
+
+  .btn-purchase {
+      padding: 10px;
+      background: #EE6F57;
+      border: none;
+      border-radius: 4px;
+      color: #f6f5f5;
+      cursor: pointer;
+      margin: 10px 10px 10px 0;
+
+      &:hover {
+          background: darken(#EE6F57, 5%);
+      }
+
+      &:focus {
+          outline: none;
+      }
+  }
+}

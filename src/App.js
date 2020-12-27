@@ -11,6 +11,8 @@ import { GlobalProvider } from './Context/GlobalContext';
 import ChangePassword from './Component/ChangePassword';
 import TopUp from './Component/TopUp';
 import Shop from './Component/Shop';
+import Checkout from './Component/Checkout';
+import TransactionHistory from './Component/TransactionHistory';
 
 function ProtectedRoute(props) {
   const { component: Component, ...rest } = props;
@@ -41,8 +43,10 @@ function App() {
             <ProtectedRoute exact path="/todo" component={Todo} />
             <ProtectedRoute exact path="/profile" component={Profile} />
             <ProtectedRoute exact path="/change-password" component={ChangePassword} />
+            <ProtectedRoute exact path="/transaction-history" component={TransactionHistory} />
             <ProtectedRoute exact path="/shop" component={Shop} />
             <ProtectedRoute exact path="/top-up" component={TopUp} />
+            <ProtectedRoute exact path="/checkout" component={Checkout} />
           </Switch>
         </div>
       </Router>

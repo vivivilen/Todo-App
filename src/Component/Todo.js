@@ -1,20 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react';
 import InputField from './InputField';
 import TodoList from './TodoList';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { GlobalContext } from '../Context/GlobalContext';
 
 const Todo = () => {
-    const { token, setIsLogin } = useContext(GlobalContext);
+    const { token, setIsLogin, logout } = useContext(GlobalContext);
     const [isLoading, setLoading] = useState(true);
     const [todo, setTodo] = useState([]);
 
     const history = useHistory();
 
     useEffect(() => {
-        console.log('useEffect: ', isLoading);
-
         setIsLogin(true)
         getTodos();
     }, [isLoading])
@@ -34,12 +32,11 @@ const Todo = () => {
         }).catch(err => {
             alert(err.response.data.message)
             if (err.response.status === 401) {
-                localStorage.clear();
-                history.push('/login');
+                logout(history);
             }
         })
     }
-    
+
     return (
         <div className="todo">
             <h1>To-do List</h1>

@@ -29,7 +29,11 @@ export const InputField = (props) => {
         }).then(res => {
             console.log(res);
             setLoading(false);
-        }   ).catch(err => alert(err))
+        }   ).catch(err => {
+            if(err.response.status === 400) {
+                alert('Can\'t add blank todo')
+            }
+            console.log(err.response)})
         setTitle('');
     }
 

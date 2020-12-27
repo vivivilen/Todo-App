@@ -1,0 +1,16 @@
+.btn-go-shop {
+  cursor: pointer;
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  color: #f6f5f5;
+  background: #ee6f57;
+  
+  &:hover {
+    background: darken(#ee6f57, 5%);
+  }
+
+  &:focus {
+      outline: none;
+  }
+}
