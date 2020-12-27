@@ -7,6 +7,17 @@
     justify-content: flex-end;
     background: #145374;
 
+    .btn-checkout {
+        // border: 1px solid white;
+        margin-right: 32px;
+
+        a {
+            font-size: 14px;
+            color: #f6f5f5;
+            text-decoration: none;
+        }
+    }
+
     span {
         // border: 1px solid black;
         position: relative;

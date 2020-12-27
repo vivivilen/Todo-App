@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { GlobalContext } from '../Context/GlobalContext';
 import axios from 'axios';
 

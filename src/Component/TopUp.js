@@ -1,11 +1,14 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import { GlobalContext } from '../Context/GlobalContext';
 
 const TopUp = () => {
     const [topUpValue, setTopUpValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const { token } = useContext(GlobalContext);
+    const { token, logout } = useContext(GlobalContext);
+
+    const history = useHistory();
 
     const handleChange = (e) => {
         if (e.target.name === "topUp") {
@@ -30,12 +33,17 @@ const TopUp = () => {
 
                 user.wallet = res.data.data.balance;
                 localStorage.setItem('dataUser', JSON.stringify(user));
-                setIsLoading(false)
+                setIsLoading(false);
+                alert('Top up success!');
                 setTopUpValue("");
             }
-        }).catch(err => console.log('error:', err.response))
+        }).catch(err => {
+            alert(err.response.data.message)
+            if(err.response.status === 401) {
+                logout(history)
+            }
+            console.log('error:', err.response)})
     }
-
     return (
         <form className="topup-form-container" onSubmit={handleSubmit}>
             <h4 className="balance-label">Current Balance</h4>

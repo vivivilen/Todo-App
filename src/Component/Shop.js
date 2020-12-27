@@ -5,7 +5,7 @@ import noPic from '../img/download.jpg';
 import { useHistory } from 'react-router-dom';
 
 const Shop = () => {
-    const { token } = useContext(GlobalContext);
+    const { token, logout, qty, setQty } = useContext(GlobalContext);
     const [dataShop, setDataShop] = useState([]);
     const [purchaseItem, setPurchaseItem] = useState([]);
 
@@ -22,23 +22,40 @@ const Shop = () => {
         }).catch(err => {
             if (err.response.status === 401) {
                 alert(err.response.data.message)
-                history.push('/login');
-                localStorage.clear();
+                logout(history);
             }
         })
+
+        let local = localStorage.getItem('purchaseItem')
+        if (local) {
+            local = JSON.parse(local)
+        } else {
+            local = []
+        }
+
+        setPurchaseItem(local)
+        let tempQty = 0
+        local.map(i => {
+            tempQty += i.qty;
+        })
+        setQty(tempQty)
     }, [])
 
+    useEffect(() => {
+        if (purchaseItem.length > 0)
+            localStorage.setItem('purchaseItem', JSON.stringify(purchaseItem))
+    }, [purchaseItem])
+
     const handleClick = (i) => {
-        // console.log(i)
         let newArray = [...purchaseItem];
 
         const sameId = purchaseItem.findIndex(pi => pi.item_id === i.item_id);
-        // console.log('id: ', sameId);
 
         if (sameId !== -1) {
             newArray[sameId] = {
                 ...newArray[sameId],
-                qty: newArray[sameId].qty + 1
+                qty: newArray[sameId].qty + 1,
+                total_price: (newArray[sameId].qty + 1) * newArray[sameId].price
             }
             console.log('qty: ', newArray[sameId].qty)
             setPurchaseItem(newArray)
@@ -47,12 +64,12 @@ const Shop = () => {
                 item_id: i.item_id,
                 name: i.name,
                 price: i.price,
-                qty: 1
+                qty: 1,
+                total_price: (1 * i.price)
             }])
         }
+        setQty(qty + 1)
     }
-
-    console.log(purchaseItem)
 
     return (
         <div className="shop-container">
@@ -63,7 +80,7 @@ const Shop = () => {
                         <h4 className="title">{shop.name}</h4>
                         <p className="desc">{shop.description}</p>
                         <p className="price">Rp. {shop.price}</p>
-                        <button onClick={() => handleClick(shop)} className="add-to-bag-btn">Add to bag</button>
+                        <button onClick={() => handleClick(shop)} className="add-to-cart-btn">Add to cart</button>
                     </div>
                 )
             })}
