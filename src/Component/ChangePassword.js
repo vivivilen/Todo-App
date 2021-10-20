@@ -27,7 +27,7 @@ const ChangePassword = () => {
         if (newPass !== confPass) {
             alert('Password is incorrect. Please try again');
         } else {
-            axios.put('http://127.0.0.1:8000/user/me/update-password', {
+            axios.put('http://6c5e-103-92-225-75.ap.ngrok.io/user/me/update-password', {
                 old_password: currPass,
                 new_password: newPass,
                 confirm_password: confPass

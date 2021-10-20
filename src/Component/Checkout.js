@@ -18,7 +18,7 @@ const Checkout = () => {
   const purchase = () => {
     axios
       .post(
-        "http://127.0.0.1:8000/purchase",
+        "http://6c5e-103-92-225-75.ap.ngrok.io/purchase",
         {
           notes: "My Purchase",
           purchased_items: local,

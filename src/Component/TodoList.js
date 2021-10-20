@@ -10,7 +10,7 @@ export const TodoList = (props) => {
 
     const deleteRequest = (id) => {
         setLoading(true)
-        axios.delete(`http://127.0.0.1:8000/todos/${id}`, {
+        axios.delete(`http://6c5e-103-92-225-75.ap.ngrok.io/todos/${id}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `${token}`
@@ -27,7 +27,7 @@ export const TodoList = (props) => {
         const { checked } = e.target
 
         setLoading(true);
-        axios.patch(`http://127.0.0.1:8000/todos/${index}`, {
+        axios.patch(`http://6c5e-103-92-225-75.ap.ngrok.io/todos/${index}`, {
             is_completed: checked
         }, {
             headers: {

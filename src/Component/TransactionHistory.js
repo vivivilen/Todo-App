@@ -11,7 +11,7 @@ const TransactionHistory = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/user/me/history", {
+      .get("http://6c5e-103-92-225-75.ap.ngrok.io/user/me/history", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `${token}`,

@@ -18,7 +18,7 @@ const Todo = () => {
     }, [isLoading])
 
     const getTodos = () => {
-        axios.get('http://127.0.0.1:8000/todos/', {
+        axios.get('http://6f8e-103-92-225-75.ap.ngrok.io/todos/', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `${token}`

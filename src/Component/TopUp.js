@@ -20,7 +20,7 @@ const TopUp = () => {
         e.preventDefault();
         setIsLoading(true)
 
-        axios.post('http://127.0.0.1:8000/user/topup', {
+        axios.post('http://6c5e-103-92-225-75.ap.ngrok.io/user/topup', {
             "balance": topUpValue
         }, {
             headers: {

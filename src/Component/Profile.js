@@ -10,7 +10,7 @@ const Profile = () => {
     const [editedEmail, setEditedEmail] = useState('');
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/user/me', {
+        axios.get('http://6c5e-103-92-225-75.ap.ngrok.io/user/me', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `${token}`
@@ -36,7 +36,7 @@ const Profile = () => {
 
         let isEmailSame = loggedInProfile.email === editedEmail ? true : false;
 
-        axios.put('http://127.0.0.1:8000/user/me/update', {
+        axios.put('http://6c5e-103-92-225-75.ap.ngrok.io/user/me/update', {
             name: editedName,
             email: editedEmail,
             is_email_same: isEmailSame

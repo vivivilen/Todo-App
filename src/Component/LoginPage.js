@@ -22,7 +22,7 @@ const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('http://127.0.0.1:8000/auth/login', {
+        axios.post('http://6f8e-103-92-225-75.ap.ngrok.io/auth/login', {
             email: email,
             password: password
         }).then(res => {
@@ -64,14 +64,14 @@ const LoginPage = () => {
 
             <div className="input-container">
                 <TextField type="email" label="EMAIL" InputLabelProps={{ shrink: true }}
-                    onChange={handleChange} name="email" value={email} required />
+                    onChange={handleChange} name="email" value={email} required data-testid="email-input"/>
             </div>
 
             <div className="input-container">
                 <TextField type="password" label="PASSWORD" InputLabelProps={{ shrink: true }}
-                    onChange={handleChange} name="password" value={password} required />
+                    onChange={handleChange} name="password" value={password} required data-testid="password-input"/>
             </div>
-            <button>LOGIN</button>
+            <button data-testid="btn-login">LOGIN</button>
         </form>
     )
 }

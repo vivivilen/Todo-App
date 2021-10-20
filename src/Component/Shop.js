@@ -12,7 +12,7 @@ const Shop = () => {
     const history = useHistory();
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/shop', {
+        axios.get('http://6c5e-103-92-225-75.ap.ngrok.io/shop', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `${token}`

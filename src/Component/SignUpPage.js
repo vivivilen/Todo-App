@@ -32,7 +32,7 @@ const SignUpPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('http://127.0.0.1:8000/register', {
+        axios.post('http://6f8e-103-92-225-75.ap.ngrok.io/register', {
             "email": email,
             "password": password,
             "name": name
